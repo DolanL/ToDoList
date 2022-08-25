@@ -1,0 +1,16 @@
+
+.addTaskInputError {
+    border: red solid 2px;
+}
+
+.error {
+    color: red;
+}
+
+.activeButton {
+    background-color: aqua;
+}
+
+.DoneTask {
+    opacity: 0.5;
+}
