@@ -7,8 +7,8 @@ type PropsType = {
     addItem: (title: string) => void;
 }
 
-const AddItemForm = (props: PropsType) => {
-
+const AddItemForm = React.memo((props: PropsType) => {
+    console.log('AddItemForm')
     const {addItem} = props
 
     let [title, setTitle] = useState("")
@@ -28,7 +28,9 @@ const AddItemForm = (props: PropsType) => {
     }
 
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-        setError(false);
+        if (error) {
+            setError(false);
+        }
         if (e.charCode === 13) {
             addTask();
         }
@@ -45,7 +47,7 @@ const AddItemForm = (props: PropsType) => {
             {error && <div className="error-message">{error}</div>}
         </div>
     );
-};
+});
 
 export default AddItemForm;
 

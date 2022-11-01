@@ -7,8 +7,9 @@ type PropsType = {
 }
 
 
-const EditableSpan = (props: PropsType) => {
+const EditableSpan = React.memo((props: PropsType) => {
 
+    console.log("EditableSpan")
     const {title, callback} = props
 
     const [toggle, setToggle] = useState(false);
@@ -41,6 +42,6 @@ const EditableSpan = (props: PropsType) => {
         toggle ? <input onChange={onChangeHandler} onKeyPress={onKeyPressHandler} onBlur={onToggleHandler} autoFocus
                         value={newTitle}/> : <span onDoubleClick={onToggleHandler}>{title}</span>
     );
-};
+});
 
 export default EditableSpan;
